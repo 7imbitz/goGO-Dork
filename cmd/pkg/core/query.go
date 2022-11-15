@@ -27,7 +27,7 @@ func ParseOptions(options *args.Options) {
 		gologger.Info().Msgf("Analyzing domain %q\n", cDomain)
 		fmt.Println("===========================================================")
 
-		//subdomain
+		/*//subdomain
 		findSubdomain(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
@@ -55,7 +55,7 @@ func ParseOptions(options *args.Options) {
 		//wordpress file
 		findWord(options)
 		fmt.Println("===========================================================")
-		time.Sleep(5 * time.Second)
+		time.Sleep(5 * time.Second)*/
 
 		//php error
 		//TODO: fix error google block
@@ -64,6 +64,11 @@ func ParseOptions(options *args.Options) {
 		time.Sleep(5 * time.Second)
 
 		//sql error
+		findSQL(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
+
+		//backup file
 		findBak(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
@@ -192,17 +197,18 @@ func gitFolder(options *args.Options) {
 	gologger.Info().Msg("Exposed .git page")
 	countGit := 0
 	//dork for .git folder
-	dork := "intitle:index of /.git/hooks \"" + options.Domain + "\""
+	//dork := "intitle:index of /.git/hooks \"" + options.Domain + "\""
+	dork := "intext:index of /.git parent directory " + options.Domain
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=intitle:index%20of%20/.git/hooks%20%22" + options.Domain + "%22")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22" + options.Domain + "%22")
 		gologger.Error().Msgf("No .git folder found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=intitle:index%20of%20/.git/hooks%20%22" + options.Domain + "%22")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22" + options.Domain + "%22")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -259,12 +265,12 @@ func findPHP(options *args.Options) {
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20\"PHP%20Parse%20error\"%20|%20\"PHP%20Warning\"%20|%20\"PHP%20Error\"")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
 		gologger.Error().Msgf("No php error found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20\"PHP%20Parse%20error\"%20|%20\"PHP%20Warning\"%20|%20\"PHP%20Error\"")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -280,9 +286,40 @@ func findPHP(options *args.Options) {
 	}
 }
 
+//Possible SQLi
+func findSQL(options *args.Options) {
+	gologger.Info().Msg("SQL Error")
+	countSQL := 0
+	//dork for php error
+	dork := "inurl:\".php?id=\" \"You have an error in your SQL syntax\"" + options.Domain
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
+		gologger.Error().Msgf("No sql error found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
+		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+			fmt.Print(masa)
+			fmt.Print(aurora.BrightYellow(" [SQL Error] "))
+			fmt.Println(result[i].URL)
+			countSQL++
+		}
+		gologger.Info().Msgf("Total sql error found :%s\n", fmt.Sprint(countSQL))
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
 //Backup file
 func findBak(options *args.Options) {
-	gologger.Info().Msg("SQL Error")
+	gologger.Info().Msg("Backup File")
 	countBak := 0
 	//dork for php error
 	dork := "site:" + options.Domain + " ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup"
