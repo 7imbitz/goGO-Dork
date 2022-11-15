@@ -27,7 +27,7 @@ func ParseOptions(options *args.Options) {
 		gologger.Info().Msgf("Analyzing domain %q\n", cDomain)
 		fmt.Println("===========================================================")
 
-		/*//subdomain
+		//subdomain
 		findSubdomain(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
@@ -55,7 +55,7 @@ func ParseOptions(options *args.Options) {
 		//wordpress file
 		findWord(options)
 		fmt.Println("===========================================================")
-		time.Sleep(5 * time.Second)*/
+		time.Sleep(5 * time.Second)
 
 		//php error
 		//TODO: fix error google block
