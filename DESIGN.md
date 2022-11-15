@@ -8,7 +8,7 @@ Contain main.go and pkg
 ## main
 Contain graceful exit, main function to call banner from [[## banner]] and to return parser into [[## query]]
 
-## cmd/pkg
+### cmd/pkg
 Contain package args and core
 
 ## cmd/pkg/args
@@ -38,20 +38,17 @@ if domain == "" {
 ```
 
 2. If domain provided, push into each function of dorking google
+    Subdomain           - https://www.google.com/search?q=site:*.(domain)
+    Exposed Document    - https://www.google.com/search?q=site:(domain) ext:doc | ext:docx | ext:odt | ext:pdf | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv)
+    Login Page          - https://www.google.com/search?q=site:(domain) inurl:signup | inurl:register | intitle:Signup
+    Exposed .git        - https://www.google.com/search?q=intitle:index of /.git/hooks "(domain)"
+    Wordpress Files     - https://www.google.com/search?q=site:(domain) inurl:wp-content | inurl:wp-includes
+    PHP Error           - https://www.google.com/search?q=site:(domain) "PHP Parse error" | "PHP Warning" | "PHP Error"
+    Backup File         - https://www.google.com/search?q=site:(domain) ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup
+    Config File         - https://www.google.com/search?q=site:(domain) ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:env | ext:ini
+    Database File       - https://www.google.com/search?q=site:(domain) ext:sql | ext:dbf | ext:mdb | ext:db
+    Sub-subdomain       - https://www.google.com/search?q=site:*.*.(domain)
 
-- Subdomain           - https://www.google.com/search?q=site:*.(domain)
-- Exposed Document    - https://www.google.com/search?q=site:(domain) ext:doc | ext:docx | ext:odt | ext:pdf | ext:rtf | ext:sxw | ext:psw | ext:ppt | ext:pptx | ext:pps | ext:csv)
-- Login Page          - https://www.google.com/search?q=site:(domain) inurl:signup | inurl:register | intitle:Signup
-- Exposed .git        - https://www.google.com/search?q=intitle:index of /.git/hooks "(domain)"
-- Wordpress Files     - https://www.google.com/search?q=site:(domain) inurl:wp-content | inurl:wp-includes
-- PHP Error           - https://www.google.com/search?q=site:(domain) "PHP Parse error" | "PHP Warning" | "PHP Error"
-- Backup File         - https://www.google.com/search?q=site:(domain) ext:bkf | ext:bkp | ext:bak | ext:old | ext:backup
-- Config File         - https://www.google.com/search?q=site:(domain) ext:xml | ext:conf | ext:cnf | ext:reg | ext:inf | ext:rdp | ext:cfg | ext:txt | ext:ora | ext:env | ext:ini
-- Database File       - https://www.google.com/search?q=site:(domain) ext:sql | ext:dbf | ext:mdb | ext:db
-- Sub-subdomain       - https://www.google.com/search?q=site:*.*.(domain)
-
-
-> **Warning**
-> This tools is still in development stage, there will be error here and there.</p>
+<p class="callout warning">This tools is still in development stage, there will be error here and there.</p>
 
 
