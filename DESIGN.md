@@ -3,9 +3,9 @@
 A brief overview of goGo-Dork architecture
 
 ## cmd
-Contain main.go and pkg
+Contain goGO-Dork.go and pkg
 
-## main
+## goGO-Dork
 Contain graceful exit, main function to call banner from [[## banner]] and to return parser into [[## query]]
 
 ### cmd/pkg
