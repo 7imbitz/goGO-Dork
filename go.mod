@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/logrusorgru/aurora/v4 v4.0.0
+	github.com/projectdiscovery/goflags v0.1.3
 	github.com/projectdiscovery/gologger v1.1.4
 	github.com/rocketlaunchr/google-search v1.1.4
 )
@@ -29,10 +30,8 @@ require (
 	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/projectdiscovery/fileutil v0.0.0-20220705195237-01becc2a8963 // indirect
-	github.com/projectdiscovery/goflags v0.1.3 // indirect
 	github.com/projectdiscovery/stringsutil v0.0.2 // indirect
 	github.com/saintfish/chardet v0.0.0-20120816061221-3af4cd4741ca // indirect
-	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/temoto/robotstxt v1.1.1 // indirect
 	golang.org/x/net v0.0.0-20221002022538-bcab6841153b // indirect
 	golang.org/x/text v0.3.7 // indirect
