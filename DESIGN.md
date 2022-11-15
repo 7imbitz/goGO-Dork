@@ -50,6 +50,8 @@ if domain == "" {
 - Database File       - https://www.google.com/search?q=site:(domain) ext:sql | ext:dbf | ext:mdb | ext:db
 - Sub-subdomain       - https://www.google.com/search?q=site:*.*.(domain)
 
-<p class="callout warning">This tools is still in development stage, there will be error here and there.</p>
+
+> **Warning**
+> This tools is still in development stage, there will be error here and there.</p>
 
 
