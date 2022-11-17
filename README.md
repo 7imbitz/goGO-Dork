@@ -1,11 +1,16 @@
 # goGo-Dork
 
-[![License](https://img.shields.io/badge/license-MIT-_red.svg)](https://opensource.org/licenses/MIT)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/7imbitz/goGO-Dork/issues)
+<p align="center">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
+<a href="https://github.com/7imbitz/goGO-Dork/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+</p>
 
 Google Dork Tools written in golang 
 
-<img src="https://user-images.githubusercontent.com/26263598/202352303-0a49c358-53b7-4bc3-8932-9246ef8e1b1d.png" height="450">
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/26263598/202352303-0a49c358-53b7-4bc3-8932-9246ef8e1b1d.png" height="450">
+  <br>
+</h1>
 
 ### Flags
 ```bash
