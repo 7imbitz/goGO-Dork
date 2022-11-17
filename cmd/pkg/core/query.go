@@ -1,7 +1,7 @@
 package core
 
 import (
-	"cmd/cmd/pkg/args"
+	"github.com/7imbitz/goGO-Dork/pkg/args"
 	"context"
 	"fmt"
 	"regexp"
