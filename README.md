@@ -19,7 +19,16 @@ goGo-Dork -h
 
 This will display the flags/argument needed for the tool
 
-<img src="https://user-images.githubusercontent.com/26263598/202352900-c1af4465-02b1-4d5e-93d8-e1a8ba95291c.png" height="350">
+```bash
+Simple Google Dork Search
+
+Usage:
+  goGO-Dork [flags]
+
+Flags:
+   -domain string  Domain to scan
+   -result int     Number of results per search (default 10)
+```
 
 ### Current Capability
 - Run through 11 dork
