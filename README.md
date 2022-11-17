@@ -4,7 +4,7 @@
 - provide domain and the tool will dork the domain for you
 
 ### Current Capability
-- Run through 10 dork
+- Run through 11 dork
     - Subdomain
     - Sub-subdomain
     - Login pages
