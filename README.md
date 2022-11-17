@@ -7,7 +7,7 @@
 
 </p>
 
-Google Dork Tools written in golang 
+A Simple Google Dork Tools written in golang 
 
 <h1 align="center">
   <img src="https://user-images.githubusercontent.com/26263598/202352303-0a49c358-53b7-4bc3-8932-9246ef8e1b1d.png" height="450">
