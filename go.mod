@@ -1,4 +1,4 @@
-module cmd
+module github.com/7imbitz/goGo-Dork
 
 go 1.18
 
