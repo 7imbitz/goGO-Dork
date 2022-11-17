@@ -1,4 +1,4 @@
-module github.com/7imbitz/goGo-Dork
+module github.com/7imbitz/goGO-Dork
 
 go 1.18
 
