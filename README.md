@@ -3,6 +3,8 @@
 <p align="center">
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-_red.svg"></a>
 <a href="https://github.com/7imbitz/goGO-Dork/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat"></a>
+<a href="https://goreportcard.com/badge/github.com/7imbitz/goGO-Dork"><img src="https://goreportcard.com/badge/github.com/7imbitz/goGO-Dork"></a>
+
 </p>
 
 Google Dork Tools written in golang 
