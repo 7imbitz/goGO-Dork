@@ -14,7 +14,7 @@ Google Dork Tools written in golang
 
 ### Flags
 ```bash
-goGo-Dork -h
+goGO-Dork -h
 ```
 
 This will display the flags/argument needed for the tool
