@@ -23,8 +23,8 @@ func main() {
 func readArgs() {
 	set := goflags.NewFlagSet()
 	set.SetDescription("Simple Google Dork Search")
-	set.StringVar(&options.Domain, "domain", "", "Domain to scan")
-	set.IntVar(&options.Results, "result", 10, "Number of results per search")
+	set.StringVarP(&options.Domain, "domain", "d", "", "Domain to scan")
+	set.IntVarP(&options.Results, "result", "r", 10, "Number of results per search")
 
 	if err := set.Parse(); err != nil {
 		gologger.Fatal().Msgf("Could not parse flags: %s\n", err)
