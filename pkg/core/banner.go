@@ -9,10 +9,10 @@ import (
 // Version is the current version of goGo-Dork
 const Version = `1.0.0`
 
-//Author of the tools
+// Author of the tools
 const Author = `7imbitz`
 
-//goGo-Dork logo
+// goGo-Dork logo
 var banner = fmt.Sprintf(`
                 __________        ____             __  
    ____ _____  / ____/ __ \      / __ \____  _____/ /__

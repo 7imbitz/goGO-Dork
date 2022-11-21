@@ -1,9 +1,9 @@
 package core
 
 import (
-	"github.com/7imbitz/goGO-Dork/cmd/pkg/args"
 	"context"
 	"fmt"
+	"github.com/7imbitz/goGO-Dork/pkg/args"
 	"regexp"
 	"strings"
 	"time"
@@ -89,7 +89,7 @@ func ParseOptions(options *args.Options) {
 	//timeTaken()
 }
 
-//finding subdomain
+// finding subdomain
 func findSubdomain(options *args.Options) {
 	gologger.Info().Msg("Subdomains")
 	countSub := 0
@@ -128,7 +128,7 @@ func findSubdomain(options *args.Options) {
 	}
 }
 
-//exposed documents
+// exposed documents
 func exposedDoc(options *args.Options) {
 	gologger.Info().Msg("Exposed Documents")
 	countDoc := 0
@@ -159,7 +159,7 @@ func exposedDoc(options *args.Options) {
 	}
 }
 
-//login/register/signup pages
+// login/register/signup pages
 func loginPages(options *args.Options) {
 	gologger.Info().Msg("Login | Register | Signup pages")
 	countPages := 0
@@ -191,8 +191,8 @@ func loginPages(options *args.Options) {
 
 }
 
-//exposed .git folder
-//TODO filter result not containing .git
+// exposed .git folder
+// TODO filter result not containing .git
 func gitFolder(options *args.Options) {
 	gologger.Info().Msg("Exposed .git page")
 	countGit := 0
@@ -224,7 +224,7 @@ func gitFolder(options *args.Options) {
 	}
 }
 
-//wordpress file
+// wordpress file
 func findWord(options *args.Options) {
 	gologger.Info().Msg("Wordpress file")
 	countWord := 0
@@ -255,7 +255,7 @@ func findWord(options *args.Options) {
 	}
 }
 
-//PHP Error
+// PHP Error
 func findPHP(options *args.Options) {
 	gologger.Info().Msg("PHP Error")
 	countPhp := 0
@@ -286,7 +286,7 @@ func findPHP(options *args.Options) {
 	}
 }
 
-//Possible SQLi
+// Possible SQLi
 func findSQL(options *args.Options) {
 	gologger.Info().Msg("SQL Error")
 	countSQL := 0
@@ -317,7 +317,7 @@ func findSQL(options *args.Options) {
 	}
 }
 
-//Backup file
+// Backup file
 func findBak(options *args.Options) {
 	gologger.Info().Msg("Backup File")
 	countBak := 0
@@ -348,7 +348,7 @@ func findBak(options *args.Options) {
 	}
 }
 
-//config file
+// config file
 func findConfig(options *args.Options) {
 	gologger.Info().Msg("Config Files")
 	countConfig := 0
@@ -379,7 +379,7 @@ func findConfig(options *args.Options) {
 	}
 }
 
-//find database file
+// find database file
 func findDB(options *args.Options) {
 	gologger.Info().Msg("Database files")
 	countDb := 0
@@ -410,7 +410,7 @@ func findDB(options *args.Options) {
 	}
 }
 
-//finding Sub-subdomain
+// finding Sub-subdomain
 func findSubSubdomain(options *args.Options) {
 	gologger.Info().Msg("Sub-Subdomains")
 	countSubs := 0
@@ -449,14 +449,14 @@ func findSubSubdomain(options *args.Options) {
 	}
 }
 
-//print DORK in color
+// print DORK in color
 func printDork() {
 	fmt.Print("[")
 	fmt.Print(aurora.Magenta("DRK"))
 	fmt.Print("]")
 }
 
-//scan time taken
+// scan time taken
 func timeTaken() {
 	now := time.Now()
 	defer func() {

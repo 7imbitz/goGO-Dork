@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/7imbitz/goGO-Dork/cmd/pkg/args"
-	"github.com/7imbitz/goGO-Dork/cmd/pkg/core"
+	"github.com/7imbitz/goGO-Dork/pkg/args"
+	"github.com/7imbitz/goGO-Dork/pkg/core"
+
 	"os"
 	"os/signal"
 
