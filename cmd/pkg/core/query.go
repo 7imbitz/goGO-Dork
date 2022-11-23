@@ -3,10 +3,11 @@ package core
 import (
 	"context"
 	"fmt"
-	"github.com/7imbitz/goGO-Dork/pkg/args"
 	"regexp"
 	"strings"
 	"time"
+
+	"github.com/7imbitz/goGO-Dork/cmd/pkg/args"
 
 	"github.com/logrusorgru/aurora/v4"
 	"github.com/projectdiscovery/gologger"
