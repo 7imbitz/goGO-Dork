@@ -56,7 +56,7 @@ Flags:
  # Notes
 
 - goGO-Dork is still ongoing development (during my free time) , improvement and updates will be done in near future
-- goGO-Dork was inspired by [dorks_hunter](https://github.com/six2dez/dorks_hunter) from [Six2dez](https://twitter.com/Six2dez)
+- goGO-Dork was inspired by [dorks_hunter](https://github.com/six2dez/dorks_hunter) from [Six2dez](https://twitter.com/Six2dez1)
 - It is currently considered "automate" as user just need to provide domain and the tool does the work
 - Next update will implement modular where user can choose to only dork a/several things rather than selecting all
 
