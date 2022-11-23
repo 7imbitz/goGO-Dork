@@ -84,6 +84,13 @@ func ParseOptions(options *args.Options) {
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
 		timeTaken()
+		
+		//dir-listing
+		findDirListing(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
+		timeTaken()
+		
 	} else {
 		gologger.Error().Msg("Please provide domain to be analyze")
 	}
@@ -443,6 +450,44 @@ func findSubSubdomain(options *args.Options) {
 			gologger.Error().Msgf("No sub-subdomain found for domain %s\n", strings.ToLower(options.Domain))
 		} else {
 			gologger.Info().Msgf("Total sub-subdomain found :%s\n", fmt.Sprint(countSubs))
+		}
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
+// finding dir-listing
+func findDirListing(options *args.Options) {
+	gologger.Info().Msg("Directory Listing")
+	countSubs := 0
+	//dork for dirlisting
+	dork := "site:" + options.Domain + " intitle:index.of"
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Error().Msgf("No directory listing found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			invalidSub := regexp.MustCompile(options.Domain + `/.`)
+			if !invalidSub.MatchString(result[i].URL) {
+				masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+				fmt.Print(masa)
+				fmt.Print(aurora.BrightYellow(" [Directory Listing] "))
+				fmt.Println(result[i].URL)
+				countSubs++
+			}
+		}
+		if countSubs == 0 {
+			gologger.Error().Msgf("No Directory Listing found for domain %s\n", strings.ToLower(options.Domain))
+		} else {
+			gologger.Info().Msgf("Total Directory Listing found :%s\n", fmt.Sprint(countSubs))
 		}
 	}
 	if err != nil {
