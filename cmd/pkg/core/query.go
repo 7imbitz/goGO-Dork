@@ -83,8 +83,7 @@ func ParseOptions(options *args.Options) {
 		findDB(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
-		timeTaken()
-		
+				
 		//dir-listing
 		findDirListing(options)
 		fmt.Println("===========================================================")
