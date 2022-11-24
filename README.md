@@ -36,8 +36,8 @@ Usage:
   goGO-Dork [flags]
 
 Flags:
-   -domain string  Domain to scan
-   -result int     Number of results per search (default 10)
+   -d, -domain string  Domain to scan
+   -r, -result int     Number of results per search (default 10)
 ```
 
 ### Current Capability
