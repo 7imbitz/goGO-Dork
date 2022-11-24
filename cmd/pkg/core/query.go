@@ -28,10 +28,10 @@ func ParseOptions(options *args.Options) {
 		gologger.Info().Msgf("Analyzing domain %q\n", cDomain)
 		fmt.Println("===========================================================")
 
-/*		//subdomain
+		//subdomain
 		findSubdomain(options)
 		fmt.Println("===========================================================")
-		time.Sleep(5 * time.Second)*/
+		time.Sleep(5 * time.Second)
 
 		//Sub-subdomain
 		findSubSubdomain(options)
@@ -83,7 +83,7 @@ func ParseOptions(options *args.Options) {
 		findDB(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
-				
+
 		//dir-listing
 		findDirListing(options)
 		fmt.Println("===========================================================")
@@ -511,17 +511,17 @@ func findGitHub(options *args.Options) {
 	//dork for .git folder
 	//dork := "intitle:index of /.git/hooks \"" + options.Domain + "\""
 	dork := "site:github.com | site:gitlab.com " + options.Domain + ""
-	
+
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" +"%22" + options.Domain + "%22"+"")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
 		gologger.Error().Msgf("No Information in GitHub found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
 		printDork()
-		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" +"%22" + options.Domain + "%22"+"")
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -542,8 +542,8 @@ func findLaravelDebug(options *args.Options) {
 	gologger.Info().Msg("Laravel Debug Mode")
 	countLarDebug := 0
 	//intitle:"Whoops! There was an error" intext:"Environment Variables"
-	dork := "site:" + options.Domain + " intitle:" + "Whoops! There was an error" + " intext:"+ "Environment Variables"
-	
+	dork := "site:" + options.Domain + " intitle:" + "Whoops! There was an error" + " intext:" + "Environment Variables"
+
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
@@ -568,7 +568,6 @@ func findLaravelDebug(options *args.Options) {
 		gologger.Error().Msgf("Error found : %s\n", err)
 	}
 }
-
 
 // print DORK in color
 func printDork() {
