@@ -7,7 +7,7 @@ import (
 )
 
 // Version is the current version of goGo-Dork
-const Version = `1.0.0`
+const Version = `1.1.0`
 
 // Author of the tools
 const Author = `7imbitz`
