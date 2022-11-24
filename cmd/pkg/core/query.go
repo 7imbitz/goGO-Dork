@@ -484,14 +484,13 @@ func findDirListing(options *args.Options) {
 		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
-			invalidSub := regexp.MustCompile(options.Domain + `/.`)
-			if !invalidSub.MatchString(result[i].URL) {
-				masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
-				fmt.Print(masa)
-				fmt.Print(aurora.BrightYellow(" [Directory Listing] "))
-				fmt.Println(result[i].URL)
-				countDirL++
-			}
+			//invalidSub := regexp.MustCompile(options.Domain + `/.`)
+			//if !invalidSub.MatchString(result[i].URL) {
+			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+			fmt.Print(masa)
+			fmt.Print(aurora.BrightYellow(" [Directory Listing] "))
+			fmt.Println(result[i].URL)
+			countDirL++
 		}
 		if countDirL == 0 {
 			gologger.Error().Msgf("No Directory Listing found for domain %s\n", strings.ToLower(options.Domain))
