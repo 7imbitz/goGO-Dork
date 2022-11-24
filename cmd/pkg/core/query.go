@@ -28,10 +28,10 @@ func ParseOptions(options *args.Options) {
 		gologger.Info().Msgf("Analyzing domain %q\n", cDomain)
 		fmt.Println("===========================================================")
 
-		//subdomain
+/*		//subdomain
 		findSubdomain(options)
 		fmt.Println("===========================================================")
-		time.Sleep(5 * time.Second)
+		time.Sleep(5 * time.Second)*/
 
 		//Sub-subdomain
 		findSubSubdomain(options)
@@ -83,7 +83,23 @@ func ParseOptions(options *args.Options) {
 		findDB(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
+				
+		//dir-listing
+		findDirListing(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
+
+		//Info in github
+		findGitHub(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
+
+		//laravel debug mode
+		findLaravelDebug(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
 		timeTaken()
+
 	} else {
 		gologger.Error().Msg("Please provide domain to be analyze")
 	}
@@ -449,6 +465,110 @@ func findSubSubdomain(options *args.Options) {
 		gologger.Error().Msgf("Error found : %s\n", err)
 	}
 }
+
+// finding dir-listing
+func findDirListing(options *args.Options) {
+	gologger.Info().Msg("Directory Listing")
+	countDirL := 0
+	//dork for dirlisting
+	dork := "site:" + options.Domain + " intitle:index.of"
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Error().Msgf("No directory listing found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			invalidSub := regexp.MustCompile(options.Domain + `/.`)
+			if !invalidSub.MatchString(result[i].URL) {
+				masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+				fmt.Print(masa)
+				fmt.Print(aurora.BrightYellow(" [Directory Listing] "))
+				fmt.Println(result[i].URL)
+				countDirL++
+			}
+		}
+		if countDirL == 0 {
+			gologger.Error().Msgf("No Directory Listing found for domain %s\n", strings.ToLower(options.Domain))
+		} else {
+			gologger.Info().Msgf("Total Directory Listing found :%s\n", fmt.Sprint(countDirL))
+		}
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
+// findGitHub
+func findGitHub(options *args.Options) {
+	gologger.Info().Msg("Information in GitHub")
+	countInfoGit := 0
+	//dork for .git folder
+	//dork := "intitle:index of /.git/hooks \"" + options.Domain + "\""
+	dork := "site:github.com | site:gitlab.com " + options.Domain + ""
+	
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" +"%22" + options.Domain + "%22"+"")
+		gologger.Error().Msgf("No Information in GitHub found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		printDork()
+		gologger.Print().Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" +"%22" + options.Domain + "%22"+"")
+		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+			fmt.Print(masa)
+			fmt.Print(aurora.BrightYellow(" [Information in GitHub] "))
+			fmt.Println(result[i].URL)
+			countInfoGit++
+		}
+		gologger.Info().Msgf("Total Information in GitHub found :%s\n", fmt.Sprint(countInfoGit))
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
+// findLaravelDebugMode
+func findLaravelDebug(options *args.Options) {
+	gologger.Info().Msg("Laravel Debug Mode")
+	countLarDebug := 0
+	//intitle:"Whoops! There was an error" intext:"Environment Variables"
+	dork := "site:" + options.Domain + " intitle:" + "Whoops! There was an error" + " intext:"+ "Environment Variables"
+	
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		printDork()
+		gologger.Print().Msg(` Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
+		gologger.Error().Msgf("No Laravel Debug Mode found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		printDork()
+		gologger.Print().Msg(` Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
+		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+			fmt.Print(masa)
+			fmt.Print(aurora.BrightYellow(" [Laravel Debug Mode] "))
+			fmt.Println(result[i].URL)
+			countLarDebug++
+		}
+		gologger.Info().Msgf("Total Laravel Debug Mode found :%s\n", fmt.Sprint(countLarDebug))
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
 
 // print DORK in color
 func printDork() {
