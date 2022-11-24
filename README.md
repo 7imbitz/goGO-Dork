@@ -41,7 +41,7 @@ Flags:
 ```
 
 ### Current Capability
-- Run through 11 dork
+- Run through 14 dork
     - Subdomain
     - Sub-subdomain
     - Login pages
@@ -52,6 +52,9 @@ Flags:
     - SQL error
     - Config file
     - Database file
+    - Directory listing
+    - Github info
+    - Laravel Debug mode
     
  # Notes
 
