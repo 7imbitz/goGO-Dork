@@ -11,7 +11,7 @@ A Simple Google Dork Tools written in golang
 
 <h1 align="center">
 
-  <img width="850" alt="goGO-Dork" src="https://user-images.githubusercontent.com/26263598/207503339-b35fd676-d343-40ef-af12-e6eb0c68bf0d.png" height="650">
+  <img width="950" alt="goGO-Dork" src="https://user-images.githubusercontent.com/26263598/207503339-b35fd676-d343-40ef-af12-e6eb0c68bf0d.png" height="650">
   <br>
 </h1>
 
