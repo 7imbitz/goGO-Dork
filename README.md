@@ -16,7 +16,7 @@ A Simple Google Dork Tools written in golang
 </h1>
 
 ### Installation Instructions
-_for the meantime, this command does not install v`1.1.0` hence please used the [[### Workaround Installation|command]]  below_
+_for the meantime, this command does not install v`1.1.0` hence please used the [command](https://github.com/7imbitz/goGO-Dork#workaround-installation) below_
 
 goGO-Dork requires **go1.17** to install successfully. Run the following command to get the repo - 
 
@@ -32,8 +32,10 @@ cd goGO-Dork
 go build -o goGO-Dork cmd/goGO-Dork/main.go
 ./goGO-Dork -h
 ```
-## You can move the binary to the `$GOPATH` directory
+_You can move the binary to the `$GOPATH` directory_
+```bash
 mv goGO-Dork $GOPATH/bin
+```
 
 ### Flags
 ```bash
