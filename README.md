@@ -10,16 +10,31 @@
 A Simple Google Dork Tools written in golang 
 
 <h1 align="center">
-  <img src="https://user-images.githubusercontent.com/26263598/202352303-0a49c358-53b7-4bc3-8932-9246ef8e1b1d.png" height="450">
+
+  <img alt="goGO-Dork" src="https://user-images.githubusercontent.com/26263598/207503339-b35fd676-d343-40ef-af12-e6eb0c68bf0d.png" height="650">
   <br>
 </h1>
 
 ### Installation Instructions
+_for the meantime, this command does not install v`1.1.0` hence please use the [command](https://github.com/7imbitz/goGO-Dork#workaround-installation) below_
 
 goGO-Dork requires **go1.17** to install successfully. Run the following command to get the repo - 
 
 ```bash
 go install -v github.com/7imbitz/goGO-Dork/cmd/goGO-Dork@latest
+```
+
+### Workaround Installation
+
+```bash
+git clone https://github.com/7imbitz/goGO-Dork.git
+cd goGO-Dork
+go build -o goGO-Dork cmd/goGO-Dork/main.go
+./goGO-Dork -h
+```
+_You can move the binary in the `$GOPATH` directory_
+```bash
+mv goGO-Dork $GOPATH/bin
 ```
 
 ### Flags
