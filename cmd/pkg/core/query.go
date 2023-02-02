@@ -178,15 +178,15 @@ func loginPages(options *args.Options) {
 	gologger.Info().Msg("Login | Register | Signup pages")
 	countPages := 0
 	//dork for login/register/signup pages
-	dork := "site:" + options.Domain + " inurl:signup | inurl:register | intitle:Signup"
+	dork := "site:" + options.Domain + "inurl:login | inurl:sign in | inurl:signup | inurl:register | intitle:Signup | intitle:Login"
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "inurl%3Alogin%20%7C%20inurl%3Asign%20in%20%7C%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup%20%7C%20intitle%3ALogin")
 		gologger.Error().Msgf("No login / register / signup pages found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "inurl%3Alogin%20%7C%20inurl%3Asign%20in%20%7C%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup%20%7C%20intitle%3ALogin")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
