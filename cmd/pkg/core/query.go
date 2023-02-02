@@ -116,7 +116,7 @@ func findSubdomain(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:*." + options.Domain + "")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:*." + options.Domain + "")
 		gologger.Error().Msgf("No subdomain found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	//TODO : fix error when result > 0, shows google result but subdomain return 404
@@ -153,11 +153,11 @@ func exposedDoc(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext%3Adoc%20%7C%20ext%3Adocx%20%7C%20ext%3Aodt%20%7C%20ext%3Apdf%20%7C%20ext%3Artf%20%7C%20ext%3Asxw%20%7C%20ext%3Apsw%20%7C%20ext%3Appt%20%7C%20ext%3Apptx%20%7C%20ext%3Apps%20%7C%20ext%3Acsv)")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext%3Adoc%20%7C%20ext%3Adocx%20%7C%20ext%3Aodt%20%7C%20ext%3Apdf%20%7C%20ext%3Artf%20%7C%20ext%3Asxw%20%7C%20ext%3Apsw%20%7C%20ext%3Appt%20%7C%20ext%3Apptx%20%7C%20ext%3Apps%20%7C%20ext%3Acsv)")
 		gologger.Error().Msgf("No exposed document found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext%3Adoc%20%7C%20ext%3Adocx%20%7C%20ext%3Aodt%20%7C%20ext%3Apdf%20%7C%20ext%3Artf%20%7C%20ext%3Asxw%20%7C%20ext%3Apsw%20%7C%20ext%3Appt%20%7C%20ext%3Apptx%20%7C%20ext%3Apps%20%7C%20ext%3Acsv)")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext%3Adoc%20%7C%20ext%3Adocx%20%7C%20ext%3Aodt%20%7C%20ext%3Apdf%20%7C%20ext%3Artf%20%7C%20ext%3Asxw%20%7C%20ext%3Apsw%20%7C%20ext%3Appt%20%7C%20ext%3Apptx%20%7C%20ext%3Apps%20%7C%20ext%3Acsv)")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -182,11 +182,11 @@ func loginPages(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
 		gologger.Error().Msgf("No login / register / signup pages found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl%3Asignup%20%7C%20inurl%3Aregister%20%7C%20intitle%3ASignup")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -214,11 +214,11 @@ func gitFolder(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
 		gologger.Error().Msgf("No .git folder found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -243,11 +243,11 @@ func findWord(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl:wp-content%20|%20inurl:wp-includes")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl:wp-content%20|%20inurl:wp-includes")
 		gologger.Error().Msgf("No wordpress file found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl:wp-content%20|%20inurl:wp-includes")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20inurl:wp-content%20|%20inurl:wp-includes")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -272,11 +272,11 @@ func findPHP(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
 		gologger.Error().Msgf("No php error found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20%22PHP%20Parse%20error%22%20|%20%22PHP%20Warning%22%20|%20%22PHP%20Error%22")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -301,11 +301,11 @@ func findSQL(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
 		gologger.Error().Msgf("No sql error found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=inurl:%22.php?id=%22%20%22You%20have%20an%20error%20in%20your%20SQL%20syntax%22%20" + options.Domain)
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -330,11 +330,11 @@ func findBak(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:bkf%20|%20ext:bkp%20|%20ext:bak%20|%20ext:old%20|%20ext:backup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:bkf%20|%20ext:bkp%20|%20ext:bak%20|%20ext:old%20|%20ext:backup")
 		gologger.Error().Msgf("No backup file found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:bkf%20|%20ext:bkp%20|%20ext:bak%20|%20ext:old%20|%20ext:backup")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:bkf%20|%20ext:bkp%20|%20ext:bak%20|%20ext:old%20|%20ext:backup")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -359,11 +359,11 @@ func findConfig(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:xml%20|%20ext:conf%20|%20ext:cnf%20|%20ext:reg%20|%20ext:inf%20|%20ext:rdp%20|%20ext:cfg%20|%20ext:txt%20|%20ext:ora%20|%20ext:env%20|%20ext:ini")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:xml%20|%20ext:conf%20|%20ext:cnf%20|%20ext:reg%20|%20ext:inf%20|%20ext:rdp%20|%20ext:cfg%20|%20ext:txt%20|%20ext:ora%20|%20ext:env%20|%20ext:ini")
 		gologger.Error().Msgf("No config file found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:xml%20|%20ext:conf%20|%20ext:cnf%20|%20ext:reg%20|%20ext:inf%20|%20ext:rdp%20|%20ext:cfg%20|%20ext:txt%20|%20ext:ora%20|%20ext:env%20|%20ext:ini")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:xml%20|%20ext:conf%20|%20ext:cnf%20|%20ext:reg%20|%20ext:inf%20|%20ext:rdp%20|%20ext:cfg%20|%20ext:txt%20|%20ext:ora%20|%20ext:env%20|%20ext:ini")
 		gologger.Info().Msgf("Config file found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -388,11 +388,11 @@ func findDB(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:sql%20|%20ext:dbf%20|%20ext:mdb%20|%20ext:db")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:sql%20|%20ext:dbf%20|%20ext:mdb%20|%20ext:db")
 		gologger.Error().Msgf("No database file found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:sql%20|%20ext:dbf%20|%20ext:mdb%20|%20ext:db")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20ext:sql%20|%20ext:dbf%20|%20ext:mdb%20|%20ext:db")
 		gologger.Info().Msgf("Database file found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -417,12 +417,12 @@ func findSubSubdomain(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:*.*." + options.Domain + "")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:*.*." + options.Domain + "")
 		gologger.Error().Msgf("No sub-subdomain found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	//TODO : fix error when result > 0, shows google result but subdomain return 404
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:*.*." + options.Domain + "")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:*.*." + options.Domain + "")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			invalidSub := regexp.MustCompile(options.Domain + `/.`)
@@ -454,11 +454,11 @@ func findDirListing(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
 		gologger.Error().Msgf("No directory listing found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:" + options.Domain + "%20intitle:index.of")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			//invalidSub := regexp.MustCompile(options.Domain + `/.`)
@@ -491,11 +491,11 @@ func findGitHub(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
 		gologger.Error().Msgf("No Information in GitHub found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(" Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:github.com%20|%20site:gitlab.com%20" + "%22" + options.Domain + "%22" + "")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
@@ -521,11 +521,11 @@ func findLaravelDebug(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg(` Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
+		gologger.Print().Label(drk.String()).Msg(`Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
 		gologger.Error().Msgf("No Laravel Debug Mode found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg(` Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
+		gologger.Print().Label(drk.String()).Msg(`Dorking https://www.google.com/search?q=site:%22` + options.Domain + `%22+intitle:%22Whoops!%20There%20was%20an%20error%22%20intext:%22Environment%20Variables%22`)
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
