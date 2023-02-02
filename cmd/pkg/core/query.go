@@ -214,11 +214,11 @@ func gitFolder(options *args.Options) {
 	//googlesearch
 	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
 	if len(result) == 0 {
-		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%20%22" + options.Domain + "%22")
 		gologger.Error().Msgf("No .git folder found for domain %s\n", strings.ToLower(options.Domain))
 	}
 	if len(result) > 0 {
-		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%22%20" + options.Domain + "%22")
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=intext:index%20of%20/.git%20parent%20directory%20%22" + options.Domain + "%22")
 		gologger.Info().Msgf("Google result found for domain %s\n", strings.ToLower(options.Domain))
 		for i := 0; i < len(result); i++ {
 			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
