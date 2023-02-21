@@ -56,7 +56,7 @@ Flags:
 ```
 
 ### Current Capability
-- Run through 14 dork
+- Run through 15 dork
     - Subdomain
     - Sub-subdomain
     - Login pages
@@ -65,11 +65,13 @@ Flags:
     - Wordpress file
     - PHP error
     - SQL error
+    - Backup file
     - Config file
     - Database file
     - Directory listing
     - Github info
     - Laravel Debug mode
+    - Pastebin Search
     
  # Notes
 
