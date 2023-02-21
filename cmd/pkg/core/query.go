@@ -99,6 +99,11 @@ func ParseOptions(options *args.Options) {
 		findLaravelDebug(options)
 		fmt.Println("===========================================================")
 		time.Sleep(5 * time.Second)
+
+		//pastebin
+		findPastebin(options)
+		fmt.Println("===========================================================")
+		time.Sleep(5 * time.Second)
 		timeTaken()
 
 	} else {
@@ -538,6 +543,35 @@ func findLaravelDebug(options *args.Options) {
 	}
 	if err != nil {
 		gologger.Error().Msgf("Error found : %s\n", err)
+	}
+}
+
+// find database file
+func findPastebin(options *args.Options) {
+	gologger.Info().Msg("Pastebin search")
+	countDb := 0
+	//dork for database file
+	dork := "site:pastebin.com " + options.Domain
+	//googlesearch
+	result, err := googlesearch.Search(ctx, dork, googlesearch.SearchOptions{Limit: options.Results})
+	if len(result) == 0 {
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:pastebin.com%20" + options.Domain)
+		gologger.Error().Msgf("No pastebin data found for domain %s\n", strings.ToLower(options.Domain))
+	}
+	if len(result) > 0 {
+		gologger.Print().Label(drk.String()).Msg("Dorking https://www.google.com/search?q=site:pastebin.com%20" + options.Domain)
+		gologger.Info().Msgf("Pastebin data found for domain %s\n", strings.ToLower(options.Domain))
+		for i := 0; i < len(result); i++ {
+			masa := aurora.Cyan(masa.Format("[2006-01-02 15:04:05]"))
+			fmt.Print(masa)
+			fmt.Print(aurora.BrightYellow(" [Pastebin Search] "))
+			fmt.Println(result[i].URL)
+			countDb++
+		}
+		gologger.Info().Msgf("Total pastebin search found :%s\n", fmt.Sprint(countDb))
+	}
+	if err != nil {
+		gologger.Error().Msgf("Error found :%s\n", err)
 	}
 }
 
