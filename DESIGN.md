@@ -53,6 +53,7 @@ if domain == "" {
 - sub-subdomain 		: site:*.*.(domain)
 - github information 	: site:github.com | site:gitlab.com (domain)
 
-<p class="callout warning">This tool is still in development stage, there will be error here and there.</p>
+> [!WARNING]
+> This tool is still in development stage, there will be error here and there.
 
 
